@@ -1,0 +1,22 @@
+.main-content {
+  text-align: center;
+}
+.content-row {
+  height: 100%;
+  background-image: url("../../public/familie.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+.padding-t {
+  padding-top: 14%;
+}
+.home-header {
+  font-size: 40px;
+  font-family: cursive;
+  color: bisque;
+}
+.caption-header {
+  font-size: large;
+  color: white;
+}
