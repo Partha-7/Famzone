@@ -10,10 +10,10 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import { calendar, people, chatbox, imageSharp } from 'ionicons/icons';
+import Gallery from './pages/Gallery';
+import Calender from './pages/Calender';
+import Members from './pages/Members';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -35,40 +35,50 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import React from 'react';
 import Home from './pages/Home';
+import Chats from './pages/Chats';
+import Header from './common/Header';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
+      <Header />
       <Home />
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
+          <Route exact path="/gallery">
+            <Gallery />
           </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
+          <Route exact path="/calender">
+            <Calender />
           </Route>
-          <Route path="/tab3">
-            <Tab3 />
+          <Route exact path="/members">
+            <Members />
+          </Route>
+          <Route exact path="/chats">
+            <Chats />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom" color="medium">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+          <IonTabButton tab="gallery" href="/gallery">
+            <IonIcon aria-hidden="true" icon={imageSharp} />
+            <IonLabel>Gallery</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+          <IonTabButton tab="calender" href="/calender">
+            <IonIcon aria-hidden="true" icon={calendar} />
+            <IonLabel>Calender</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+          <IonTabButton tab="members" href="/members">
+            <IonIcon aria-hidden="true" icon={people} />
+            <IonLabel>Members</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="chats" href="/chats">
+            <IonIcon aria-hidden="true" icon={chatbox} />
+            <IonLabel>Chats</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

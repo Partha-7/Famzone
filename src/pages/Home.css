@@ -3,7 +3,7 @@
 }
 .content-row {
   height: 100%;
-  background-image: url("../../public/familie.jpg");
+  background-image: url("/familie.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;
@@ -19,4 +19,7 @@
 .caption-header {
   font-size: large;
   color: white;
+}
+.page-dimension {
+  padding-top: 80px;
 }
