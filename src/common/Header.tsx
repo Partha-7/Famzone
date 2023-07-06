@@ -3,9 +3,6 @@ import { IonHeader, IonToolbar, IonTitle, IonAvatar, IonRow, IonCol, IonButton, 
 import '../pages/Header.css';
 
 function Header({ customHeaderStyle = "", customHeaderTitleStyle = "header" }) {
-    var today = new Date();
-    var timeFormat = today.getHours() + ":" + today.getMinutes();
-    var time = timeFormat;
     return (
         <IonHeader className={customHeaderStyle}>
             <IonToolbar color="tertiary">
@@ -17,11 +14,11 @@ function Header({ customHeaderStyle = "", customHeaderTitleStyle = "header" }) {
                         <IonAvatar className="ion-avatar" id="click-trigger">
                             <img className="avatar-img" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
                         </IonAvatar>
-                        <IonPopover trigger="click-trigger" triggerAction="click">
+                        <IonPopover trigger="click-trigger" triggerAction="click" reference="event" side="bottom" alignment="start">
                             <IonContent class="ion-padding">
                                 <IonList className="ion-no-padding">
-                                    <IonItem>Profile</IonItem>
-                                    <IonItem lines="none">Settings</IonItem>
+                                    <IonContent className="ion-padding" onClick={() => { location.href = "/profile" }}>Profile</IonContent>
+                                    <IonContent className="ion-padding" onClick={() => { location.href = "/settings" }}>Settings</IonContent>
                                 </IonList>
                             </IonContent>
                         </IonPopover>

@@ -37,6 +37,8 @@ import React from 'react';
 import Home from './pages/Home';
 import Chats from './pages/Chats';
 import Header from './common/Header';
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
 
 setupIonicReact();
 
@@ -58,6 +60,12 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/chats">
             <Chats />
+          </Route>
+          <Route exact path="/profile">
+            <Profile />
+          </Route>
+          <Route exact path="/settings">
+            <Settings />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />

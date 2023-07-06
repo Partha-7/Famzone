@@ -1,0 +1,18 @@
+.chat-card {
+  border: 1px solid gray;
+}
+.display-flex {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.min-height {
+  min-height: 40px !important;
+}
+.icon-alignment {
+  align-self: center;
+}
+.chat-input-box {
+  bottom: 0px;
+  top: 0;
+  position: relative;
+}
