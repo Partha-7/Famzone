@@ -1,0 +1,10 @@
+.calender-event {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.plus-icon {
+  font-size: 35px;
+}
+.calender-height {
+  height: 350px;
+}

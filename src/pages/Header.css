@@ -1,0 +1,14 @@
+.header {
+  font-size: 26px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+}
+.avatar-img {
+  height: 40px;
+  width: 40px;
+}
+.ion-avatar {
+  height: auto;
+  width: auto;
+  text-align: end;
+}
