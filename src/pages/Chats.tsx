@@ -21,8 +21,8 @@ const Chats: React.FC = () => {
                         <IonTitle>Chats</IonTitle>
                     </IonCol>
                 </IonRow>
-                <IonRow>
-                    <IonCol>
+                <IonRow style={{ height: "calc(100%-200px)" }}>
+                    <IonCol >
                         <IonCard className="chat-card">
                             <IonRow>
                                 <IonCol size="2">
@@ -49,7 +49,7 @@ const Chats: React.FC = () => {
                     </IonCol>
                 </IonRow>
             </IonContent>
-        </IonPage>
+        </IonPage >
     );
 };
 

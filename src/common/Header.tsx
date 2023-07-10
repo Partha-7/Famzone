@@ -5,7 +5,7 @@ import '../pages/Header.css';
 function Header({ customHeaderStyle = "", customHeaderTitleStyle = "header" }) {
     return (
         <IonHeader className={customHeaderStyle}>
-            <IonToolbar color="tertiary">
+            <IonToolbar color="medium">
                 <IonRow>
                     <IonCol>
                         <IonTitle className={customHeaderTitleStyle} onClick={() => { location.href = "/" }}>Famzone</IonTitle>

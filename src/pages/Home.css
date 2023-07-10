@@ -3,7 +3,7 @@
 }
 .content-row {
   height: 100%;
-  background-image: url("/familie.jpg");
+  background-image: url("/family.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;
@@ -13,12 +13,12 @@
 }
 .home-header {
   font-size: 40px;
-  font-family: cursive;
-  color: bisque;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: black;
 }
 .caption-header {
   font-size: large;
-  color: white;
+  color: black;
 }
 .page-dimension {
   padding-top: 80px;

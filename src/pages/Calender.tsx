@@ -32,7 +32,7 @@ const Calender: React.FC = () => {
             <IonButton onClick={onAddEvent}><span className="plus-icon">+</span>&nbsp; Add Event</IonButton>
           </IonCol>
         </IonRow>
-        <IonRow>
+        <IonRow style={{ height: "calc(100% - 150px)" }}>
           <IonCol size="6">
             <IonDatetime
               className="calender-height"

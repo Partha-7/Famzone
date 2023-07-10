@@ -1,9 +1,17 @@
 import { IonContent, IonPage, IonTitle, IonRow, IonCol, IonIcon, IonButton, IonList, IonItem } from '@ionic/react';
 import './Members.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { chevronBackCircleOutline, personAdd } from 'ionicons/icons';
+import { AddMember } from './AddMember';
 
 const Members: React.FC = () => {
+  const [openModal, setOpenModal] = useState(false);
+  function addParticipant() {
+    setOpenModal(true);
+  }
+  function closeModal() {
+    setOpenModal(false);
+  }
   return (
     <IonPage>
       <IonContent fullscreen>
@@ -17,7 +25,7 @@ const Members: React.FC = () => {
             <IonTitle>Members</IonTitle>
           </IonCol>
           <IonCol>
-            <IonButton><IonIcon icon={personAdd} />&nbsp; Add Participant</IonButton>
+            <IonButton onClick={addParticipant}><IonIcon icon={personAdd} />&nbsp; Add Participant</IonButton>
           </IonCol>
         </IonRow>
         <IonRow>
@@ -31,6 +39,11 @@ const Members: React.FC = () => {
             </IonList>
           </IonCol>
         </IonRow>
+        <AddMember
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          closeModal={closeModal}
+        />
       </IonContent>
     </IonPage>
   );
