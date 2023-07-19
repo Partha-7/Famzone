@@ -7,4 +7,16 @@
 }
 .calender-height {
   height: 350px;
+  min-width: -webkit-fill-available;
+}
+.mobile-calender-padding {
+  padding-bottom: 50px;
+}
+.event-card {
+  text-align: center;
+  border: 2px solid lightskyblue;
+  height: auto;
+  font-size: 16px;
+  color: black;
+  padding-top: 4px;
 }

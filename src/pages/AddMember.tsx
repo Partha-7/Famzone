@@ -12,17 +12,23 @@ import {
     IonModal,
     IonRow,
     IonTitle,
+    IonIcon,
+    isPlatform,
+    IonImg,
 } from "@ionic/react";
 import './Members.css';
 import { restrictAlphaAndSplChar } from "../Constants/Constants";
+import { personCircleOutline, pencilOutline } from 'ionicons/icons';
 
 
-export const AddMember: React.FC<any> = ({ openModal, closeModal }) => {
+const AddMember: React.FC<any> = (props) => {
+    const { openModal, closeModal, inputRef, handleClick, handleChangeImage, profileImage, onClickSave, firstNameRef, lastNameRef } = props;
+    const isMobile = isPlatform("mobile");
     return (
         <>
             <IonModal
                 isOpen={openModal}
-                className="add-member-popup"
+                className={isMobile ? "add-member-popup-mobile" : "add-member-popup"}
                 onDidDismiss={() => {
                     closeModal();
                 }}>
@@ -44,6 +50,33 @@ export const AddMember: React.FC<any> = ({ openModal, closeModal }) => {
                     </IonRow>
                 </IonHeader>
                 <IonRow>
+                    <IonCol offsetLg={profileImage ? "4" : "4.5"} offsetXs="4.5">
+                        {profileImage ?
+                            <>
+                                <img className="profile-image-size" src={profileImage} />
+                                <input
+                                    style={{ display: 'none' }}
+                                    ref={inputRef}
+                                    type="file"
+                                    onChange={handleChangeImage}
+                                    accept="image/*"
+                                />
+                                <IonIcon onClick={handleClick} icon={pencilOutline} />
+                            </>
+                            :
+                            <>
+                                <input
+                                    style={{ display: 'none' }}
+                                    ref={inputRef}
+                                    type="file"
+                                    onChange={handleChangeImage}
+                                    accept="image/*"
+                                />
+                                <IonIcon onClick={handleClick} className="profile-icon" icon={personCircleOutline} />
+                            </>}
+                    </IonCol>
+                </IonRow>
+                <IonRow>
                     <IonCol size="6">
                         <IonLabel>
                             *First name
@@ -52,6 +85,7 @@ export const AddMember: React.FC<any> = ({ openModal, closeModal }) => {
                             className="calender-event min-height"
                             type="text"
                             name="firstName"
+                            ref={firstNameRef}
                         ></IonInput>
                     </IonCol>
                     <IonCol size="6">
@@ -59,6 +93,7 @@ export const AddMember: React.FC<any> = ({ openModal, closeModal }) => {
                             *Last name
                             </IonLabel>
                         <IonInput
+                            ref={lastNameRef}
                             className="calender-event min-height"
                             type="text"
                             name="lastName"
@@ -108,6 +143,7 @@ export const AddMember: React.FC<any> = ({ openModal, closeModal }) => {
                                 color="gray"
                                 expand="block"
                                 type="submit"
+                                onClick={onClickSave}
                             >
                                 Save
                             </IonButton>
@@ -118,3 +154,4 @@ export const AddMember: React.FC<any> = ({ openModal, closeModal }) => {
         </>
     );
 };
+export default AddMember;
