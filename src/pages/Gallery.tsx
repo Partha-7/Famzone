@@ -1,25 +1,33 @@
-import { IonContent, IonPage, IonTitle, IonRow, IonCol, IonIcon, IonButton } from '@ionic/react';
+import { IonContent, IonPage, IonTitle, IonRow, IonCol, IonIcon, IonButton, IonLabel, IonItem } from '@ionic/react';
 import './Gallery.css';
 import './Home.css'
-import React, { useRef } from 'react';
-import { chevronBackCircleOutline, chevronForwardCircleOutline, duplicate } from 'ionicons/icons';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import { itemData } from '../Constants/Constants';
+import React, { useRef, useState } from 'react';
+import { chevronBackCircleOutline, duplicate } from 'ionicons/icons';
+import { ImagePreview } from './ImagePreview';
 
 
 const Gallery: React.FC = () => {
+  const [itemList, setItemList] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
   const inputRef = useRef(null);
   const handleClick = () => {
     //@ts-ignore
     inputRef.current.click();
   };
-  const handleFileChange = (event: any) => {
-    const fileObj = event.target.files && event.target.files[0];
-    if (!fileObj) {
-      return;
-    }
-  };
+  const handleChangeImage = (e: any) => {
+    const image = URL.createObjectURL(e.target.files[0]);
+    setItemList(prevState => [...prevState, image] as []);
+  }
+  function previewImage(e: any) {
+    setOpenModal(true);
+    const image = e.target.src;
+    setSelectedImage(image);
+  }
+  function closeModal() {
+    setOpenModal(false);
+  }
+
   return (
     <IonPage>
       <IonContent fullscreen>
@@ -37,7 +45,7 @@ const Gallery: React.FC = () => {
               style={{ display: 'none' }}
               ref={inputRef}
               type="file"
-              onChange={handleFileChange}
+              onChange={handleChangeImage}
               accept="image/*"
             />
             <IonButton onClick={handleClick}><IonIcon icon={duplicate} />&nbsp; Import image</IonButton>
@@ -45,20 +53,18 @@ const Gallery: React.FC = () => {
         </IonRow>
         <IonRow>
           <IonCol>
-            <ImageList sx={{ width: "calc(100%)", height: 320 }} cols={3} rowHeight={164}>
-              {itemData.map((item) => (
-                <ImageListItem key={item.img}>
-                  <img
-                    src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                    srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                    alt={item.title}
-                    loading="lazy"
-                  />
-                </ImageListItem>
-              ))}
-            </ImageList>
+            <div className="displat-flex-images">
+              {itemList.map((item: any, index: any) => {
+                return <img className="image-size" src={item} key={index} alt="none" height={250} width={250} onClick={previewImage} />
+              })}
+            </div>
           </IonCol>
         </IonRow>
+        <ImagePreview
+          image={selectedImage}
+          openModal={openModal}
+          closeModal={closeModal}
+        />
       </IonContent>
     </IonPage>
   );

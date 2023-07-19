@@ -1,0 +1,30 @@
+.padding-item {
+  padding-top: 10%;
+  text-align: center;
+  font-size: 25px;
+  color: gray;
+}
+.displat-flex-images {
+  padding-left: 3%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 2px;
+  flex-wrap: wrap;
+  row-gap: 50px;
+  column-gap: 50px;
+}
+.image-size {
+  border: 1px solid gray;
+  cursor: pointer;
+}
+.preview-popup {
+  --height: 100%;
+  --width: 100%;
+  --border-radius: 8px;
+}
+.modal-close-icon {
+  text-align-last: end;
+}
+.scroll-content {
+  overflow-y: auto;
+}

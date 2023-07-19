@@ -1,5 +1,6 @@
 .chat-card {
   border: 1px solid gray;
+  height: 100%;
 }
 .display-flex {
   display: flex;
