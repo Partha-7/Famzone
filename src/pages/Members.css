@@ -1,0 +1,38 @@
+.add-member-popup {
+  --height: 450px;
+  --width: 400px;
+  --border-radius: 8px;
+}
+.add-member-popup-mobile {
+  --height: 670px;
+  --width: 400px;
+  --border-radius: 8px;
+}
+.modal-header {
+  background-color: gray;
+}
+.modal-footer {
+  background-color: gray;
+}
+.modal-cancel {
+  font-size: 35px;
+  color: black;
+  padding-bottom: 10px;
+}
+.participant-header-modal {
+  color: black;
+  padding-top: 4px;
+}
+.profile-icon {
+  font-size: 80px;
+}
+.profile-image-size {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.member-image-size {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}

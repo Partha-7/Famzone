@@ -1,21 +1,50 @@
-import { IonContent, IonPage, IonRow, IonCol, IonTitle, IonIcon, IonDatetime, IonLabel, IonTextarea, IonInput, IonButton, IonList, IonItem } from '@ionic/react';
+import {
+  IonContent,
+  IonPage,
+  IonRow,
+  IonCol,
+  IonTitle,
+  IonIcon,
+  IonDatetime,
+  IonLabel,
+  IonTextarea,
+  IonInput,
+  IonButton,
+  IonList,
+  IonItem,
+  isPlatform,
+  IonCard
+} from '@ionic/react';
 import './Calender.css';
 import './Home.css';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { chevronBackCircleOutline } from 'ionicons/icons';
 
 const Calender: React.FC = () => {
   const [event, setEvent] = useState(false);
+  const inputElement = useRef('' as any);
+  const dateRef = useRef('' as any);
+  const desRef = useRef('' as any);
+  const [date, setDate] = useState('');
+  const [inputEvent, setInputEvent] = useState('');
+  const [descEvent, setDescEvent] = useState('');
+  const [eventList, setEventList] = useState([]);
+  const isMobile = isPlatform("mobile");
+
   const onAddEvent = () => {
     setEvent(true);
   }
   const onClickAdd = () => {
-    alert("Added successfully");
+    setDate(`${dateRef.current.activePartsClone.day}/${dateRef.current.activePartsClone.month}/${dateRef.current.activePartsClone.year}`);
+    setInputEvent(inputElement.current.focusedValue);
+    setDescEvent(desRef.current.focusedValue);
+    setEventList(prevState => [...prevState, `${dateRef.current.activePartsClone.day}/${dateRef.current.activePartsClone.month}/${dateRef.current.activePartsClone.year} - ${inputElement.current.focusedValue} - ${desRef.current.focusedValue}`] as []);
+    setEvent(false);
   }
   const onDateChange = (e: any) => {
     setEvent(false);
-    console.log("change", e.target.value);
   }
+
   return (
     <IonPage>
       <IonContent fullscreen>
@@ -32,13 +61,14 @@ const Calender: React.FC = () => {
             <IonButton onClick={onAddEvent}><span className="plus-icon">+</span>&nbsp; Add Event</IonButton>
           </IonCol>
         </IonRow>
-        <IonRow>
-          <IonCol size="6">
+        <IonRow style={{ height: "calc(100% - 150px)" }}>
+          <IonCol sizeLg="6" sizeMd="12">
             <IonDatetime
               className="calender-height"
+              ref={dateRef}
               onIonChange={onDateChange}></IonDatetime>
           </IonCol>
-          <IonCol size="5">
+          <IonCol sizeLg="5" sizeMd="12" className={isMobile ? "mobile-calender-padding" : ""}>
             {event ?
               <>
                 <IonRow>
@@ -48,7 +78,10 @@ const Calender: React.FC = () => {
                 </IonRow>
                 <IonRow>
                   <IonCol>
-                    <IonInput className="calender-event min-height"></IonInput>
+                    <IonInput
+                      ref={inputElement}
+                      className="calender-event min-height"
+                    />
                   </IonCol>
                 </IonRow>
                 <IonRow>
@@ -58,7 +91,9 @@ const Calender: React.FC = () => {
                 </IonRow>
                 <IonRow>
                   <IonCol>
-                    <IonTextarea className="calender-event"></IonTextarea>
+                    <IonTextarea
+                      ref={desRef}
+                      className="calender-event" />
                   </IonCol>
                 </IonRow>
                 <IonRow>
@@ -72,10 +107,9 @@ const Calender: React.FC = () => {
                 <IonRow>
                   <IonCol>
                     <IonList>
-                      <IonItem>Event 1</IonItem>
-                      <IonItem>Event 2</IonItem>
-                      <IonItem>Event 3</IonItem>
-                      <IonItem>Event 4</IonItem>
+                      {eventList.map((event: any, index: any) => {
+                        return <IonCard className="event-card" key={index}>{event}</IonCard>
+                      })}
                     </IonList>
                   </IonCol>
                 </IonRow>
