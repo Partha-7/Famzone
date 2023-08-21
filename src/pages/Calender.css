@@ -20,3 +20,13 @@
   color: black;
   padding-top: 4px;
 }
+.no-event-message {
+  padding-top: 80px;
+}
+.no-events-text {
+  font-style: italic;
+  color: dodgerblue;
+}
+.add-event-button {
+  height: 12px;
+}

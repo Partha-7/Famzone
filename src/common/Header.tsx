@@ -1,16 +1,17 @@
 import React from 'react'
-import { IonHeader, IonToolbar, IonTitle, IonAvatar, IonRow, IonCol, IonButton, IonPopover, IonContent, IonList, IonItem } from '@ionic/react';
+import { IonHeader, IonToolbar, IonTitle, IonAvatar, IonRow, IonCol, IonButton, IonPopover, IonContent, IonList, IonItem, IonIcon } from '@ionic/react';
 import '../pages/Header.css';
+import { power, powerOutline } from 'ionicons/icons';
 
 function Header({ customHeaderStyle = "", customHeaderTitleStyle = "header" }) {
     return (
         <IonHeader className={customHeaderStyle}>
             <IonToolbar color="medium">
                 <IonRow>
-                    <IonCol size="6" sizeMd="4.5" sizeXs="10">
+                    <IonCol sizeLg="4" sizeMd="4.5" sizeXs="10">
                         <IonTitle className={customHeaderTitleStyle} onClick={() => { location.href = "/" }}>Famzone</IonTitle>
                     </IonCol>
-                    <IonCol>
+                    <IonCol sizeLg="2" offsetLg="5.8">
                         <IonAvatar className="ion-avatar" id="click-trigger">
                             <img className="avatar-img" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
                         </IonAvatar>
@@ -22,6 +23,9 @@ function Header({ customHeaderStyle = "", customHeaderTitleStyle = "header" }) {
                                 </IonList>
                             </IonContent>
                         </IonPopover>
+                    </IonCol>
+                    <IonCol sizeLg="0.2">
+                        <IonIcon className="logout" icon={powerOutline} onClick={() => { location.href = "/login" }} />
                     </IonCol>
                 </IonRow>
             </IonToolbar>

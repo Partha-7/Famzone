@@ -1,7 +1,7 @@
 import { IonContent, IonPage, IonTitle, IonRow, IonCol, IonIcon, IonButton, IonList, IonItem } from '@ionic/react';
 import './Members.css';
 import React, { useState, useRef } from 'react';
-import { chevronBackCircleOutline, personAdd } from 'ionicons/icons';
+import { chevronBackCircleOutline, personAdd, personCircleOutline } from 'ionicons/icons';
 import AddMember from './AddMember';
 
 const Members: React.FC = () => {
@@ -50,7 +50,12 @@ const Members: React.FC = () => {
           <IonCol>
             <IonList>
               {memberList.map((event: any, index: any) => {
-                return <IonItem key={index}> <img className="member-image-size" src={profileImage} />&nbsp;{event}</IonItem>
+                return <IonItem key={index}>
+                  {profileImage ?
+                    <img className="member-image-size" src={profileImage} />
+                    :
+                    <IonIcon icon={personCircleOutline} />}
+                   &nbsp;{event}</IonItem>
               })}
             </IonList>
           </IonCol>

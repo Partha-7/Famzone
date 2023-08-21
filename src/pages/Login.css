@@ -1,0 +1,29 @@
+.login-row {
+  padding-top: 10%;
+}
+.input-height {
+  min-height: 40px !important;
+  width: 250px;
+}
+.login-grid {
+  width: 100%;
+}
+.login-fields {
+  text-align: center;
+  align-self: center;
+}
+.divider {
+  display: inline-block;
+  width: 1px;
+  background-color: black;
+  margin: 0 10px;
+  height: 18em;
+}
+
+.credential-col {
+  align-self: center;
+}
+.error {
+  font-style: italic;
+  color: red;
+}
