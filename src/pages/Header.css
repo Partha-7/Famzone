@@ -1,7 +1,9 @@
 .header {
+  padding-top: 5px;
   font-size: 26px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   cursor: pointer;
+  color: black;
 }
 .avatar-img {
   height: 40px;
@@ -11,4 +13,10 @@
   height: auto;
   width: auto;
   text-align: end;
+}
+.logout {
+  font-size: 20px;
+  color: black;
+  text-align: end;
+  padding-top: 12px;
 }

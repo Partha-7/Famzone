@@ -1,5 +1,6 @@
 .chat-card {
   border: 1px solid gray;
+  height: 100%;
 }
 .display-flex {
   display: flex;
@@ -15,4 +16,10 @@
   bottom: 0px;
   top: 0;
   position: relative;
+}
+.chat-box {
+  border: 1px solid gray;
+  width: max-content;
+  border-radius: 8px;
+  flex-wrap: wrap;
 }

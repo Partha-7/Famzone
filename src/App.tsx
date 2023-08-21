@@ -39,6 +39,7 @@ import Chats from './pages/Chats';
 import Header from './common/Header';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+import Login from './pages/Login';
 
 setupIonicReact();
 
@@ -49,6 +50,9 @@ const App: React.FC = () => (
       <Home />
       <IonTabs>
         <IonRouterOutlet>
+          <Route exact path="/login">
+            <Login />
+          </Route>
           <Route exact path="/gallery">
             <Gallery />
           </Route>

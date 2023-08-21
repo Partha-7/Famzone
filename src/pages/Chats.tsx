@@ -4,9 +4,9 @@ import React, { useState, Profiler } from 'react';
 import { chevronBackCircleOutline, pencil, send, man, person, contract, personCircleOutline } from 'ionicons/icons';
 
 const Chats: React.FC = () => {
-    const [input, setInput] = useState("");
+    const [input, setInput] = useState([]);
     const fetchUserInput = (e: any) => {
-        setInput(e.detail.value);
+        setInput(prevState => [...prevState, e.detail.value] as []);
     }
     return (
         <IonPage>
@@ -21,8 +21,8 @@ const Chats: React.FC = () => {
                         <IonTitle>Chats</IonTitle>
                     </IonCol>
                 </IonRow>
-                <IonRow>
-                    <IonCol>
+                <IonRow style={{ height: "calc(100%-200px)" }}>
+                    <IonCol >
                         <IonCard className="chat-card">
                             <IonRow>
                                 <IonCol size="2">
@@ -32,14 +32,17 @@ const Chats: React.FC = () => {
                                     <IonIcon icon={pencil} />
                                 </IonCol>
                             </IonRow>
-                            {input && <IonRow>
-                                <IonCol size="0.5">
-                                    <IonIcon icon={personCircleOutline} size="large" />
-                                </IonCol>
-                                <IonCol>
-                                    <IonItem lines="none">{input}</IonItem>
-                                </IonCol>
-                            </IonRow>}
+                            {input && input.map((item: any, index: any) => {
+                                return (
+                                    <IonRow key={index}>
+                                        <IonCol size="0.5">
+                                            <IonIcon icon={personCircleOutline} size="large" />
+                                        </IonCol>
+                                        <IonCol>
+                                            <IonItem className="chat-box" lines="none">{item}</IonItem>
+                                        </IonCol>
+                                    </IonRow>)
+                            })}
                             <IonRow className="chat-input-box">
                                 <IonCol>
                                     <IonInput className="calender-event display-flex min-height" onIonChange={fetchUserInput}> <IonIcon className="icon-alignment" icon={send} size="small" /></IonInput>
@@ -49,7 +52,7 @@ const Chats: React.FC = () => {
                     </IonCol>
                 </IonRow>
             </IonContent>
-        </IonPage>
+        </IonPage >
     );
 };
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import { IonPage, IonContent, IonRow, IonIcon, IonCol, IonTitle } from '@ionic/react'
 import { chevronBackCircleOutline } from 'ionicons/icons'
-
 function Settings() {
     return (
         <IonPage>

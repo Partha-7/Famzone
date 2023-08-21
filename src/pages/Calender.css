@@ -7,4 +7,26 @@
 }
 .calender-height {
   height: 350px;
+  min-width: -webkit-fill-available;
+}
+.mobile-calender-padding {
+  padding-bottom: 50px;
+}
+.event-card {
+  text-align: center;
+  border: 2px solid lightskyblue;
+  height: auto;
+  font-size: 16px;
+  color: black;
+  padding-top: 4px;
+}
+.no-event-message {
+  padding-top: 80px;
+}
+.no-events-text {
+  font-style: italic;
+  color: dodgerblue;
+}
+.add-event-button {
+  height: 12px;
 }
