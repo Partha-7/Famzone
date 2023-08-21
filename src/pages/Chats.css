@@ -17,3 +17,9 @@
   top: 0;
   position: relative;
 }
+.chat-box {
+  border: 1px solid gray;
+  width: max-content;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}

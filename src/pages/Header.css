@@ -14,3 +14,9 @@
   width: auto;
   text-align: end;
 }
+.logout {
+  font-size: 20px;
+  color: black;
+  text-align: end;
+  padding-top: 12px;
+}

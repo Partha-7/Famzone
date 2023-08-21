@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { IonPage, IonContent, IonRow, IonCol, IonTitle, IonText } from '@ionic/react';
 import './Home.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 function Home() {
   return (

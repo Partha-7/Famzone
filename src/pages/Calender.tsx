@@ -58,7 +58,7 @@ const Calender: React.FC = () => {
             <IonTitle>Calender</IonTitle>
           </IonCol>
           <IonCol>
-            <IonButton onClick={onAddEvent}><span className="plus-icon">+</span>&nbsp; Add Event</IonButton>
+            <IonButton className="add-event-button" onClick={onAddEvent}><span className="plus-icon">+</span>&nbsp; Add Event</IonButton>
           </IonCol>
         </IonRow>
         <IonRow style={{ height: "calc(100% - 150px)" }}>
@@ -103,17 +103,26 @@ const Calender: React.FC = () => {
                 </IonRow>
               </>
               :
-              <>
-                <IonRow>
-                  <IonCol>
-                    <IonList>
-                      {eventList.map((event: any, index: any) => {
-                        return <IonCard className="event-card" key={index}>{event}</IonCard>
-                      })}
-                    </IonList>
-                  </IonCol>
-                </IonRow>
-              </>
+              eventList.length === 0 ?
+                <>
+                  <IonRow className="no-event-message">
+                    <IonCol offsetLg="5">
+                      <h1 className="no-events-text">No Events</h1>
+                    </IonCol>
+                  </IonRow>
+                </>
+                :
+                <>
+                  <IonRow>
+                    <IonCol>
+                      <IonList>
+                        {eventList.map((event: any, index: any) => {
+                          return <IonCard className="event-card" key={index}>{event}</IonCard>
+                        })}
+                      </IonList>
+                    </IonCol>
+                  </IonRow>
+                </>
             }
           </IonCol>
         </IonRow>
