@@ -1,6 +1,7 @@
 .header {
   padding-top: 5px;
   font-size: 26px;
+  width: 150px;
   font-family: Georgia, "Times New Roman", Times, serif;
   cursor: pointer;
   color: black;

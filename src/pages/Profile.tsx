@@ -2,9 +2,14 @@ import React from 'react'
 import { IonPage, IonContent, IonRow, IonCol, IonIcon, IonTitle, IonLabel, IonInput, IonButton, IonList, IonItem, IonSelect, IonSelectOption } from '@ionic/react';
 import { chevronBackCircleOutline } from 'ionicons/icons';
 import { restrictAlphaAndSplChar } from '../Constants/Constants';
+import { useHistory } from 'react-router-dom';
+import { Routes } from '../Constants/Routes';
 
 function Profile() {
-
+    const history = useHistory();
+    const navigateTo = (url: any) => {
+        history.push(url);
+    };
     return (
         <IonPage>
             <IonContent fullscreen>
@@ -12,7 +17,7 @@ function Profile() {
                     <IonIcon
                         size="large"
                         md={chevronBackCircleOutline}
-                        onClick={() => { location.href = "/" }}
+                        onClick={() => { navigateTo(Routes.dashboard.url); }}
                     />
                     <IonCol size="9.5">
                         <IonTitle>Profile</IonTitle>

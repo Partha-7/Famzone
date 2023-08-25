@@ -1,12 +1,19 @@
 import { IonContent, IonPage, IonTitle, IonRow, IonCol, IonIcon, IonCard, IonHeader, IonItem, IonInput, IonAvatar } from '@ionic/react';
 import './Chats.css';
-import React, { useState, Profiler } from 'react';
+import React, { useState, Profiler, useRef, useEffect } from 'react';
 import { chevronBackCircleOutline, pencil, send, man, person, contract, personCircleOutline } from 'ionicons/icons';
+import { Routes } from '../Constants/Routes';
+import { useHistory } from 'react-router-dom';
 
 const Chats: React.FC = () => {
+    const history = useHistory();
+    const messageRef = useRef("" as any);
+    const navigateTo = (url: any) => {
+        history.push(url);
+    };
     const [input, setInput] = useState([]);
     const fetchUserInput = (e: any) => {
-        setInput(prevState => [...prevState, e.detail.value] as []);
+        setInput(prevState => [...prevState, messageRef.current.focusedValue] as []);
     }
     return (
         <IonPage>
@@ -15,7 +22,7 @@ const Chats: React.FC = () => {
                     <IonIcon
                         size="large"
                         md={chevronBackCircleOutline}
-                        onClick={() => { location.href = "/" }}
+                        onClick={() => { navigateTo(Routes.dashboard.url); }}
                     />
                     <IonCol>
                         <IonTitle>Chats</IonTitle>
@@ -45,7 +52,7 @@ const Chats: React.FC = () => {
                             })}
                             <IonRow className="chat-input-box">
                                 <IonCol>
-                                    <IonInput className="calender-event display-flex min-height" onIonChange={fetchUserInput}> <IonIcon className="icon-alignment" icon={send} size="small" /></IonInput>
+                                    <IonInput ref={messageRef} className="calender-event display-flex min-height"> <IonIcon className="icon-alignment" onClick={fetchUserInput} icon={send} size="small" /></IonInput>
                                 </IonCol>
                             </IonRow>
                         </IonCard>

@@ -2,16 +2,25 @@ import React, { useRef, useState } from 'react'
 import "./Login.css";
 import "./Calender";
 import { IonPage, IonContent, IonRow, IonCol, IonLabel, IonInput, IonButton } from '@ionic/react'
+import { Routes } from '../Constants/Routes';
+import { useHistory } from 'react-router-dom';
 
 function Login() {
+    const history = useHistory();
+    const navigateTo = (url: any) => {
+        history.push(url);
+    };
     const userRef = useRef('' as any);
     const passwordRef = useRef('' as any);
     const [error, setError] = useState('');
     const onSubmit = () => {
         if (userRef.current.focusedValue === "admin" && passwordRef.current.focusedValue === "admin") {
-            location.href = "/";
-        } else {
-            setError("Wrong credentials! Try forget password")
+            navigateTo(Routes.dashboard.url);
+        } else if ((!userRef.current.focusedValue || userRef.current.focusedValue.length === 0) && (!passwordRef.current.focusedValue || passwordRef.current.focusedValue.length === 0)) {
+            setError("Please enter username and password");
+        }
+        else {
+            setError("Wrong credentials! Try forget password");
         }
     }
     return (

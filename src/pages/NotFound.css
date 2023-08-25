@@ -1,0 +1,38 @@
+.errorWrapper {
+  display: grid;
+  height: 80%;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+}
+.fallback-center-error {
+  text-align: center !important;
+  margin: 120px 0px 0px 0px;
+}
+.dashboard-ig-main {
+  height: 100vh;
+}
+.dashboard-ig-height {
+  height: 100vh;
+}
+.fallback-center {
+  text-align: center !important;
+  margin: 100px 0px 0px 0px;
+}
+.fallback-circle-desktop {
+  border-radius: 90px 90px 90px 90px;
+  width: 150px;
+  height: 150px;
+  background-color: var(--ion-color-primary);
+  margin: auto;
+  color: white;
+  font-size: 55px;
+  padding-top: 40px;
+}
+.page-not-found {
+  margin: 16px 0px 16px 0px;
+}
+.page-not-found-tablet {
+  font-size: 20px;
+  margin: 4px 0px 4px 0px;
+}

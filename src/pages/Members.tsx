@@ -3,6 +3,8 @@ import './Members.css';
 import React, { useState, useRef } from 'react';
 import { chevronBackCircleOutline, personAdd, personCircleOutline } from 'ionicons/icons';
 import AddMember from './AddMember';
+import { useHistory } from 'react-router-dom';
+import { Routes } from '../Constants/Routes';
 
 const Members: React.FC = () => {
   const inputRef = useRef('' as any);
@@ -11,6 +13,10 @@ const Members: React.FC = () => {
   const [openModal, setOpenModal] = useState(false);
   const [memberList, setMemberList] = useState([]);
   const [profileImage, setProfileImage] = useState('');
+  const history = useHistory();
+  const navigateTo = (url: any) => {
+    history.push(url);
+  };
   const handleClick = () => {
     //@ts-ignore
     inputRef.current.click();
@@ -37,7 +43,7 @@ const Members: React.FC = () => {
           <IonIcon
             size="large"
             md={chevronBackCircleOutline}
-            onClick={() => { location.href = "/" }}
+            onClick={() => { navigateTo(Routes.dashboard.url); }}
           />
           <IonCol size="9">
             <IonTitle>Members</IonTitle>

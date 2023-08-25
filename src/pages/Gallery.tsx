@@ -4,6 +4,8 @@ import './Home.css'
 import React, { useRef, useState } from 'react';
 import { chevronBackCircleOutline, duplicate } from 'ionicons/icons';
 import { ImagePreview } from './ImagePreview';
+import { useHistory } from 'react-router-dom';
+import { Routes } from '../Constants/Routes';
 
 
 const Gallery: React.FC = () => {
@@ -11,6 +13,10 @@ const Gallery: React.FC = () => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
   const inputRef = useRef(null);
+  const history = useHistory();
+  const navigateTo = (url: any) => {
+    history.push(url);
+  };
   const handleClick = () => {
     //@ts-ignore
     inputRef.current.click();
@@ -35,7 +41,7 @@ const Gallery: React.FC = () => {
           <IonIcon
             size="large"
             md={chevronBackCircleOutline}
-            onClick={() => { location.href = "/" }}
+            onClick={() => { navigateTo(Routes.dashboard.url); }}
           />
           <IonCol size="9.5">
             <IonTitle>Gallery</IonTitle>

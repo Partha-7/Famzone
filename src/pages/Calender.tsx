@@ -19,6 +19,8 @@ import './Calender.css';
 import './Home.css';
 import React, { useState, useRef } from 'react';
 import { chevronBackCircleOutline } from 'ionicons/icons';
+import { useHistory } from 'react-router-dom';
+import { Routes } from '../Constants/Routes';
 
 const Calender: React.FC = () => {
   const [event, setEvent] = useState(false);
@@ -30,7 +32,10 @@ const Calender: React.FC = () => {
   const [descEvent, setDescEvent] = useState('');
   const [eventList, setEventList] = useState([]);
   const isMobile = isPlatform("mobile");
-
+  const history = useHistory();
+  const navigateTo = (url: any) => {
+    history.push(url);
+  };
   const onAddEvent = () => {
     setEvent(true);
   }
@@ -52,7 +57,7 @@ const Calender: React.FC = () => {
           <IonIcon
             size="large"
             md={chevronBackCircleOutline}
-            onClick={() => { location.href = "/" }}
+            onClick={() => { navigateTo(Routes.dashboard.url); }}
           />
           <IonCol size="10">
             <IonTitle>Calender</IonTitle>

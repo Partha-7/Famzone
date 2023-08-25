@@ -1,14 +1,11 @@
-.add-member-popup {
-  --height: 450px;
-  --width: 400px;
-  --border-radius: 8px;
-}
 .add-member-popup-mobile {
   --height: 670px;
   --width: 400px;
   --border-radius: 8px;
 }
 .modal-header {
+  bottom: 10px;
+  padding-bottom: 2px;
   background-color: gray;
 }
 .modal-footer {
